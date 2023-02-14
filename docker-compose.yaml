@@ -1,0 +1,8 @@
+version: '3.3'
+
+services:
+  k6-test:
+    image: grafana/k6
+    volumes:
+      - ./:/test
+    command: ["run", "/test/first-test.js"]
