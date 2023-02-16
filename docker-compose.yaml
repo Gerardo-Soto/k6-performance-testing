@@ -5,4 +5,4 @@ services:
     image: grafana/k6
     volumes:
       - ./:/test
-    command: ["run", "/test/first-test.js"]
+    command: ["run", "/test/stages.js"]
