@@ -6,4 +6,4 @@ services:
     user: root
     volumes:
       - ./:/test
-    command: ["run", "--summary-export=/test/summary-test.json", "/test/stages.js"]
+    command: ["run", "/test/gauge.js"]
