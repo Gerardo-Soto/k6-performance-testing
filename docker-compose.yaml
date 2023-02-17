@@ -3,6 +3,7 @@ version: '3.3'
 services:
   k6-test:
     image: grafana/k6
+    user: root
     volumes:
       - ./:/test
-    command: ["run", "/test/stages.js"]
+    command: ["run", "--summary-export=/test/summary-test.json", "/test/stages.js"]
