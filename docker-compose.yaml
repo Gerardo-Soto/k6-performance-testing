@@ -6,4 +6,4 @@ services:
     user: root
     volumes:
       - ./:/test
-    command: ["run", "/test/gauge.js"]
+    command: ["run", "/test/smoke-test.js"]
