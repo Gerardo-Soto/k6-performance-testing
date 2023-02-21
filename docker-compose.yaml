@@ -1,9 +1,12 @@
 version: '3.3'
 
 services:
+
   k6-test:
     image: grafana/k6
     user: root
     volumes:
       - ./:/test
-    command: ["run", "/test/smoke-test.js"]
+    #command: ["run", "/test/checkChallenge.js"]
+    command: ["run", "--out", "influxdb=http://192.168.1.70:8086/myk6db", "/test/stress-test.js"]
+

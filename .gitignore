@@ -102,3 +102,9 @@ dist
 
 # TernJS port file
 .tern-port
+
+# Grafana
+grafana_9.3.6_amd64.deb
+
+# influxDB
+influxDB/
