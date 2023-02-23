@@ -108,3 +108,6 @@ grafana_9.3.6_amd64.deb
 
 # influxDB
 influxDB/
+
+# docker new relic API key
+docker-new-relic
