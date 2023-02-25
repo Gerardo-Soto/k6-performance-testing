@@ -1,0 +1,7 @@
+testing priority:
+
+1.- Smoak test.     low load.
+2.- Stress testing.     variety spikes load.
+3.- Spike testing.  so high spike load in a short time.
+4.- Load testing.   mid load with spikes.
+5.- Soak testing.   mid/high load along time.

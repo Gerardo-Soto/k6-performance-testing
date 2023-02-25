@@ -1,0 +1,248 @@
+{
+    "name": "K6 performance testing",
+    "description": null,
+    "permissions": "PUBLIC_READ_ONLY",
+    "pages": [
+      {
+        "name": "K6 performance testing",
+        "description": null,
+        "widgets": [
+          {
+            "title": "p(90)",
+            "layout": {
+              "column": 1,
+              "row": 1,
+              "width": 4,
+              "height": 3
+            },
+            "linkedEntityGuids": null,
+            "visualization": {
+              "id": "viz.line"
+            },
+            "rawConfiguration": {
+              "colors": {
+                "seriesOverrides": [
+                  {
+                    "color": "#d643fe",
+                    "seriesName": "90th"
+                  }
+                ]
+              },
+              "facet": {
+                "showOtherSeries": false
+              },
+              "legend": {
+                "enabled": true
+              },
+              "nrqlQueries": [
+                {
+                  "accountIds": [
+                    3550057
+                  ],
+                  "query": "SELECT sum(`k6.http_req_duration.sum.percentiles`) AS '90th' FROM Metric WHERE percentile = 90  SINCE 30 MINUTES AGO TIMESERIES"
+                }
+              ],
+              "platformOptions": {
+                "ignoreTimeRange": false
+              },
+              "yAxisLeft": {
+                "zero": true
+              }
+            }
+          },
+          {
+            "title": "req_blocked p(80)",
+            "layout": {
+              "column": 5,
+              "row": 1,
+              "width": 4,
+              "height": 3
+            },
+            "linkedEntityGuids": null,
+            "visualization": {
+              "id": "viz.line"
+            },
+            "rawConfiguration": {
+              "colors": {
+                "seriesOverrides": [
+                  {
+                    "color": "#f36262",
+                    "seriesName": "p(80)"
+                  }
+                ]
+              },
+              "facet": {
+                "showOtherSeries": false
+              },
+              "legend": {
+                "enabled": true
+              },
+              "nrqlQueries": [
+                {
+                  "accountIds": [
+                    3550057
+                  ],
+                  "query": "SELECT latest(`k6.http_req_blocked.count.percentiles`) AS 'p(80)' FROM Metric WHERE percentile = 80 SINCE 30 MINUTES AGO TIMESERIES"
+                }
+              ],
+              "platformOptions": {
+                "ignoreTimeRange": false
+              },
+              "yAxisLeft": {
+                "zero": true
+              }
+            }
+          },
+          {
+            "title": "Data received vs Data send",
+            "layout": {
+              "column": 9,
+              "row": 1,
+              "width": 4,
+              "height": 3
+            },
+            "linkedEntityGuids": null,
+            "visualization": {
+              "id": "viz.line"
+            },
+            "rawConfiguration": {
+              "facet": {
+                "showOtherSeries": false
+              },
+              "legend": {
+                "enabled": true
+              },
+              "nrqlQueries": [
+                {
+                  "accountIds": [
+                    3550057
+                  ],
+                  "query": "SELECT sum(`k6.data_received`), sum(`k6.data_sent`) FROM Metric SINCE 30 MINUTES AGO TIMESERIES"
+                }
+              ],
+              "platformOptions": {
+                "ignoreTimeRange": false
+              },
+              "yAxisLeft": {
+                "zero": true
+              }
+            }
+          },
+          {
+            "title": "Connecting",
+            "layout": {
+              "column": 1,
+              "row": 4,
+              "width": 4,
+              "height": 3
+            },
+            "linkedEntityGuids": null,
+            "visualization": {
+              "id": "viz.line"
+            },
+            "rawConfiguration": {
+              "facet": {
+                "showOtherSeries": false
+              },
+              "legend": {
+                "enabled": true
+              },
+              "nrqlQueries": [
+                {
+                  "accountIds": [
+                    3550057
+                  ],
+                  "query": "SELECT sum(`k6.http_req_connecting.summary`) FROM Metric SINCE 60 MINUTES AGO UNTIL NOW LIMIT 100 TIMESERIES 30000"
+                }
+              ],
+              "platformOptions": {
+                "ignoreTimeRange": false
+              },
+              "yAxisLeft": {
+                "zero": true
+              }
+            }
+          },
+          {
+            "title": "http request",
+            "layout": {
+              "column": 5,
+              "row": 4,
+              "width": 4,
+              "height": 3
+            },
+            "linkedEntityGuids": null,
+            "visualization": {
+              "id": "viz.line"
+            },
+            "rawConfiguration": {
+              "facet": {
+                "showOtherSeries": false
+              },
+              "legend": {
+                "enabled": true
+              },
+              "nrqlQueries": [
+                {
+                  "accountIds": [
+                    3550057
+                  ],
+                  "query": "SELECT latest(`k6.http_reqs`) FROM Metric SINCE 60 MINUTES AGO UNTIL NOW FACET dimensions() LIMIT 100 TIMESERIES 30000"
+                }
+              ],
+              "platformOptions": {
+                "ignoreTimeRange": false
+              },
+              "yAxisLeft": {
+                "zero": true
+              }
+            }
+          },
+          {
+            "title": "Iterations",
+            "layout": {
+              "column": 9,
+              "row": 4,
+              "width": 4,
+              "height": 3
+            },
+            "linkedEntityGuids": null,
+            "visualization": {
+              "id": "viz.line"
+            },
+            "rawConfiguration": {
+              "colors": {
+                "seriesOverrides": [
+                  {
+                    "color": "#00e663",
+                    "seriesName": "K6.iterations"
+                  }
+                ]
+              },
+              "facet": {
+                "showOtherSeries": false
+              },
+              "legend": {
+                "enabled": true
+              },
+              "nrqlQueries": [
+                {
+                  "accountIds": [
+                    3550057
+                  ],
+                  "query": "SELECT latest(`k6.iterations`), count(`k6.iteration_duration.summary`) FROM Metric SINCE 60 MINUTES AGO UNTIL NOW LIMIT 100 TIMESERIES 30000"
+                }
+              ],
+              "platformOptions": {
+                "ignoreTimeRange": false
+              },
+              "yAxisLeft": {
+                "zero": true
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "variables": []
+  }

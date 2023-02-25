@@ -7,6 +7,10 @@ services:
     user: root
     volumes:
       - ./:/test
-#    command: ["run", "/test/checkChallenge.js"]
-    command: ["run", "--out", "influxdb=http://192.168.1.70:8086/myk6db", "/test/stress-test.js"]
+    #command: ["run", "/test/checkChallenge.js"]
+    #command: ["run", "--out", "influxdb=http://192.168.1.70:8086/myk6db", "/test/smoke-test.js"]
+    #command: ["run", "--out", "influxdb=http://192.168.1.70:8086/myk6db", "/test/stress-test.js"]
+    #command: ["run", "--out", "influxdb=http://192.168.1.70:8086/myk6db", "/test/spike-test.js"]
+    #command: ["run", "--out", "influxdb=http://192.168.1.70:8086/myk6db", "/test/load-test.js"]
+    command: ["run", "--out", "influxdb=http://192.168.1.70:8086/myk6db", "/test/soak-test.js"]
 
