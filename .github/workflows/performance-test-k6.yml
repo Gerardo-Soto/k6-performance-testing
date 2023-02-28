@@ -1,7 +1,7 @@
 on:
   push:
     branches:
-      - "master"
+      - "main"
 
 jobs:
   k6_performance_test:
