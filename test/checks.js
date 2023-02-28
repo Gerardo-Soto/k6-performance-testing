@@ -10,7 +10,7 @@ export const options = {
 };
 
 export default function () {
-    const response = http.get("https://api.escuelajs.co/api/v1/products/5");
+    const response = http.get("https://api.escuelajs.co/api/v1/products/15");
 
     check(response, {
         "statusCode is 200": (r) => r.status === 200,
